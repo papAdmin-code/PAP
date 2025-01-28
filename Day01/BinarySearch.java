@@ -3,6 +3,7 @@ import java.util.Scanner;
 class Main{
     public static void main(String []args){
         Scanner sc = new Scanner(System.in);
+        //USE ONLY SORTED ARRAY
         int[]arr={1,2,3,4,5};
         int key = sc.nextInt();
         int low = 0;
