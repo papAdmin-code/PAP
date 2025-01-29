@@ -1,23 +1,30 @@
-class Solution {
-    public int trap(int[] height) {
-        int i=0,left_max=height[0],sum=0;
-        int j=height.length-1,right_max=height[j];
-        while (i<j)
-        {
-            if(left_max <= right_max)
-            {
-                sum+=(left_max-height[i]);
-                i++;
-                left_max=Math.max(left_max,height[i]);
-            }
-            else 
-            {
-                sum+=(right_max-height[j]);
-                j--;
-                right_max=Math.max(right_max,height[j]);
-            }
+import java.util.*;
+class Main {
+    static int maxWater(int[] arr) {
+        int res = 0;
+
+        // For every element of the array
+        for (int i = 1; i < arr.length - 1; i++) {
+
+            // Find the maximum element on its left
+            int left = arr[i];
+            for (int j = 0; j < i; j++)
+                left = Math.max(left, arr[j]);
+
+            // Find the maximum element on its right
+            int right = arr[i];
+            for (int j = i + 1; j < arr.length; j++)
+                right = Math.max(right, arr[j]);
+
+            // Update the maximum water
+            res += Math.min(left, right) - arr[i];
         }
-        return sum;
-        
+
+        return res;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = { 2, 1, 5, 3, 1, 0, 4 };
+        System.out.println(maxWater(arr));
     }
 }
