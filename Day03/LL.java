@@ -1,35 +1,45 @@
-import java.util.Scanner;
-
-class Node {
+import java.util.*;
+class Node{
     int data;
     Node next;
-
-    Node(int new_data) {
+    
+    Node(int new_data){
         data = new_data;
         next = null;
     }
 }
 
-public class Main {
-  
-    public static Node insertAtFront(Node head, int new_data) {
+class Main {
+    
+    public static Node insertAtFront(Node head,int new_data){
         Node new_node = new Node(new_data);
-        new_node.next = head; 
-        return new_node; 
-    }
-
-    public static void printList(Node head) {
+        
+        if(head==null){
+        return new_node;
+        }
+        
         Node curr = head;
-        while (curr != null) {
-            System.out.print(" " + curr.data);
+        while(curr.next!=null){
             curr = curr.next;
         }
-        System.out.println();
+        
+        curr.next = new_node;
+        return head;
+        
     }
-
+    
+    public static void printList(Node head){
+        Node curr = head;
+        while(curr!=null){
+            System.out.print(" "+curr.data);
+            curr = curr.next;
+        }
+    }
+    
+    
+    
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
+       Scanner sc = new Scanner(System.in);
         Node head = null;
         System.out.print("Enter the number of nodes in the list: ");
         int n = sc.nextInt();
@@ -44,5 +54,5 @@ public class Main {
         printList(head);
         
         sc.close();
+        }
     }
-}
