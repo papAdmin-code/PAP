@@ -1,6 +1,6 @@
 class Main {
     public static void main(String[] args) {
-        int arr[] = { 100,200,300,400 };
+        int arr[] = { 100, 200, 300, 400 };
         int k = 2;
         int n = arr.length;
         int max_sum = Integer.MIN_VALUE;
