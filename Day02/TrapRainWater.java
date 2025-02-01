@@ -27,7 +27,16 @@ class Main {
     }
 
     public static void main(String[] args) {
-        int[] arr = {2, 1, 5, 3, 1, 0, 4};
-        System.out.println(trapRainwater(arr));
+       int[][] testCases = {
+               {2, 1, 5, 3, 1, 0, 4},
+               {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1},
+                {4,2,0,3,2,5},
+                {4,2,3} ,
+                {0,1,2,3,4,5}
+        };
+
+       for(int[] arr: testCases){
+            System.out.println("Input: "+Arrays.toString(arr)+", Trapped Rainwater: "+ trapRainwater(arr));
+        }
     }
 }
