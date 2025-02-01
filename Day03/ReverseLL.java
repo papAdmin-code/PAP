@@ -11,9 +11,8 @@ class Node {
 }
 
 class Main {
-      
+
     static Node reverseList(Node head) {
-          
         Stack<Node> stack = new Stack<>();
 
         Node curr = head;
@@ -28,13 +27,10 @@ class Main {
             curr = head;
 
             while (!stack.isEmpty()) {
-              
                 curr.next = stack.pop();
-                
                 curr = curr.next;
             }
-
-            curr.next = null;
+             curr.next = null; // Set the next of the last node to null
         }
 
         return head;
@@ -49,20 +45,29 @@ class Main {
     }
 
     public static void main(String[] args) {
-          
+
         // 1 -> 2 -> 3 -> 4 -> 5
         Node head = new Node(1);
         head.next = new Node(2);
         head.next.next = new Node(3);
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
-
-        System.out.print("Given Linked List:");
+        
+         System.out.print("Given Linked List:");
         printList(head);
 
         head = reverseList(head);
-
-        System.out.print("\nReversed Linked List:");
+        
+         System.out.print("\nReversed Linked List:");
         printList(head);
+        
+        // Test case for empty list
+        Node emptyHead = null;
+         System.out.print("Empty List:");
+        printList(emptyHead);
+        
+        emptyHead = reverseList(emptyHead);
+         System.out.print("\nReversed Empty List:");
+        printList(emptyHead);
     }
 }
