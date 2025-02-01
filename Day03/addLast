@@ -10,15 +10,13 @@ class Node {
 
 public class Main {
 
-    static Node insertAtEnd(Node head, int newData)
-    {
+    static Node insertAtEnd(Node head, int newData) {
         Node newNode = new Node(newData);
 
         if (head == null) {
             return newNode;
         }
-        
-        
+
         Node curr = head;
 
         while (curr.next != null) {
@@ -30,23 +28,34 @@ public class Main {
         return head;
     }
 
-    public static void printList(Node node)
-    {
+    public static void printList(Node node) {
         while (node != null) {
             System.out.print(" " + node.data);
             node = node.next;
         }
+         System.out.println(); // Added a new line after printing the list
     }
 
-    public static void main(String[] args)
-    {
-        Node head = new Node(2);
+    public static void main(String[] args) {
+       Node head = new Node(2);
         head.next = new Node(3);
         head.next.next = new Node(4);
         head.next.next.next = new Node(5);
         head.next.next.next.next = new Node(6);
 
-        head = insertAtEnd(head, 1);
+
+        System.out.print("Original List:");
         printList(head);
+
+        head = insertAtEnd(head, 1);
+
+        System.out.print("Modified List:");
+         printList(head);
+
+        //Test case with empty list
+        Node head2 = null;
+        System.out.print("Empty list After Insertion:");
+        head2 = insertAtEnd(head2,10);
+        printList(head2);
     }
 }
