@@ -11,11 +11,11 @@ class Node {
 }
 
 public class Main {
-  
+
     public static Node insertAtFront(Node head, int new_data) {
         Node new_node = new Node(new_data);
-        new_node.next = head; 
-        return new_node; 
+        new_node.next = head;
+        return new_node;
     }
 
     public static void printList(Node head) {
@@ -33,16 +33,16 @@ public class Main {
         Node head = null;
         System.out.print("Enter the number of nodes in the list: ");
         int n = sc.nextInt();
-        
+
         System.out.println("Enter the elements:");
         for (int i = 0; i < n; i++) {
             int data = sc.nextInt();
-            head = insertAtFront(head, data);  
+            head = insertAtFront(head, data);
         }
 
         System.out.print("The linked list is:");
         printList(head);
-        
+
         sc.close();
     }
 }
